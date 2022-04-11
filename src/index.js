@@ -5,12 +5,10 @@ const path = require("path");
 
 const routes = require("./routes");
 const connection = require("./config/connection");
-const handlebarshelpers = require("./helpers/handlebarshelpers");
 
 const PORT = process.env.PORT || 3000;
 
-// const handlebarsOptions = { handlebarshelpers };
-const hbs = expressHandlebars.create({ helpers: handlebarshelpers });
+const hbs = expressHandlebars.create();
 const app = express();
 
 app.engine("handlebars", hbs.engine);
