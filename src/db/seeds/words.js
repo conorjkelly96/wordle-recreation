@@ -1,6 +1,7 @@
 const { Word } = require("../../models");
+const wordsArray = require("./wordsArray");
 
-const wordsData = [
+const wordsDataSample = [
   {
     word: "write",
   },
@@ -22,7 +23,13 @@ const wordsData = [
 ];
 
 const seedWords = async () => {
-  const words = wordsData.map((word) => Word.create(word));
+  const completeWordsArray = wordsArray.map((word) => {
+    return {
+      word: word,
+    };
+  });
+
+  const words = completeWordsArray.map((word) => Word.create(word));
   await Promise.all(words);
 };
 
