@@ -4,14 +4,12 @@ const Sequelize = require("sequelize");
 
 const getRandomWord = async (req, res) => {
   try {
-    const randomWord = Word.findAll({
+    const randomWord = await Word.findAll({
       order: Sequelize.literal("rand()"),
-      limit: 5,
+      limit: 1,
     }).then((encounters) => {
-      return encounters;
+      return encounters[0].word;
     });
-
-    console.log(randomWord);
 
     return res.json({
       success: true,

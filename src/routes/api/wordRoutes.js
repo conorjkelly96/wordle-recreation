@@ -5,6 +5,6 @@ const { getRandomWord } = require("../../controllers/api/word");
 const router = Router();
 
 // /api/users endpoints
-router.get("/:id", getRandomWord);
+router.get("/", getRandomWord);
 
 module.exports = router;
