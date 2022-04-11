@@ -16,7 +16,7 @@ const schema = {
     allowNull: false,
     unique: true,
     validate: {
-      len: [8, 30],
+      len: [5, 5],
     },
   },
 };

@@ -1,4 +1,6 @@
-export const wordsData = [
+const { Word } = require("../../models");
+
+const wordsData = [
   {
     word: "write",
   },
@@ -19,7 +21,9 @@ export const wordsData = [
   },
 ];
 
-export const seedWords = async () => {
+const seedWords = async () => {
   const words = wordsData.map((word) => Word.create(word));
   await Promise.all(words);
 };
+
+module.exports = seedWords;
