@@ -5,6 +5,9 @@ let nextLetter = 0;
 // let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)];
 // console.log(rightGuessString);
 
+// Global jQuery Elements
+const startGameContainer = $("#start-game-container");
+
 const onload = () => {
   let board = document.getElementById("game-board");
   for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
@@ -21,14 +24,20 @@ const onload = () => {
   }
 };
 
-const generateWord = async () => {
-  const response = await fetch(`/api/words/`);
+const generateWord = async (event) => {
+  console.log(event);
+  const target = event.target;
+  console.log(target);
 
-  const { data } = await response.json();
+  if ($(target).is("#start-game-btn")) {
+    const response = await fetch(`/api/words/`);
 
-  console.log(data);
+    const { data } = await response.json();
+
+    console.log(data);
+  }
 };
 
-generateWord();
-
 onload();
+
+startGameContainer.on("click", generateWord);
