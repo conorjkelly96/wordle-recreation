@@ -1,0 +1,7 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS wordle_db;
+
+-- CREATE DATABASE
+CREATE DATABASE wordle_db;
+
+USE wordle_db;
